@@ -128,22 +128,7 @@ if __name__ == "__main__":
             val_loss_avg = np.sum(np.array(val_loss_list), axis=0) / total_num
             print("Epoch {}, Validation loss: {:.5f}, val ppl: {:.5f}, val top3_acc: {:.5f}".format(epoch, val_loss_avg[0], val_loss_avg[1], val_loss_avg[2]), flush=True)
 
-            if args.agg == 'avg':
-                w_glob = average_weights(w_locals, avg_weight, args)
-            elif args.agg == 'att':
-                w_glob = aggregate_att(w_locals, w_glob, args)
-            elif args.agg == 'med':
-                if abs(before_loss - loss_avg) > 0.01:
-                    w_glob = adaptive_agg(w_locals, w_glob, args.epsilon, dp=args.dp)
-                else:
-                    w_glob = average_weights(w_locals, avg_weight, args)
-            elif args.agg == 'SD_att':
-                if sd_flag:
-                    w_glob = SD_att_agg(w_locals, w_glob, args.epsilon, args.ord, dp=args.dp)
-                else:
-                    w_glob = average_weights(w_locals, avg_weight, args)
-            else:
-                exit('Unrecognized aggregation')
+            w_glob = average_weights(w_locals, avg_weight, args)
             # copy weight to net_glob
             if args.variational:
                 w_glob['decoder.weight'] = w_glob['encoder.weight']
