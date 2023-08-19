@@ -1,4 +1,4 @@
-# Federated Dropout on RNN model
+# Federated Dropout on RNN model with DGC
 
 This repository extend [Federated Dropout](https://arxiv.org/abs/1812.07210) to recurrent connections of RNN models.
 
@@ -14,3 +14,5 @@ The model can be composed of two LSTM layers.
 + Get Reddit dataset from https://github.com/TalwalkarLab/leaf/tree/master/data/reddit
 + Run `data/user_data.py` to preprocess data
 + Run `run_att.py`
+
+Referring to [DGC](https://arxiv.org/abs/1712.01887), we compress local parameters via DGC before transmitting to the server.
