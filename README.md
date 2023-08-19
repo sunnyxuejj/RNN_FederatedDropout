@@ -1,4 +1,4 @@
-# Federated Dropout on RNN model with DGC
+# Federated Dropout on RNN model
 
 This repository extend [Federated Dropout](https://arxiv.org/abs/1812.07210) to recurrent connections of RNN models.
 
