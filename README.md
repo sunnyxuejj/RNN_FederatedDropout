@@ -15,4 +15,4 @@ The model can be composed of two LSTM layers.
 + Run `data/user_data.py` to preprocess data
 + Run `run_att.py`
 
-Referring to [DGC](https://arxiv.org/abs/1712.01887), we compress local parameters via DGC before transmitting to the server.
+Referring to Deep Gradient Compression ([DGC])(https://arxiv.org/abs/1712.01887), we compress local parameters via DGC before transmitting to the server.
